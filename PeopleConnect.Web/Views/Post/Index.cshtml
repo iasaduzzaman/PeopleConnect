@@ -1,0 +1,57 @@
+﻿@model IEnumerable<PeopleConnect.Domain.Entities.Post>
+
+<div class="card-border-0 shadow-sm rounded-4 card border-success bg-success bg-opacity-10">
+    <div class="card-header rounded-4 bg-success bg-opacity-60 ml-0 py-3">
+        <div class="row">
+            <div class="col-12 text-center">
+               <h2 class="text-white py-2">Post List</h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="card-body border p-4"> -->
+    <div class="row pb-3">
+        <div class="col-6 offset-6 text-end">
+            <a asp-controller="Post" asp-action="Create" class="btn btn-secondary">
+                    <i class="bi bi-plus-circle"></i> Create Post
+            </a>
+        </div>
+    </div>    
+     <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>PostType</th>
+                <th>PostTitle</th>
+                <th>Name</th>
+                <th>Contact</th>
+                <th>Address</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var obj in Model)
+            {
+                <tr>
+                    <td>@obj.PostType</td>
+                    <td>@obj.PostTitle</td>
+                    <td>@obj.Name</td>
+                    <td>@obj.Contact</td>
+                    <td>@obj.Address</td>
+                    <td>
+                        <div class="w-100 btn-group" role="group">
+                            <a asp-controller="Post" asp-action="Edit" asp-route-postId="@obj.PostId"
+                               class="btn btn-success mx-2">
+                              <i class="bi bi-pencil-square"></i> Edit
+                            </a>
+                            <a asp-controller="Post" asp-action="Delete" asp-route-postId="@obj.PostId"
+                               class="btn btn-danger mx-2">
+                               <i class="bi bi-trash-fill"></i> Delete
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+     </table>
+  
+</div>
