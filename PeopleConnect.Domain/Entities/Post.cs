@@ -17,7 +17,7 @@ namespace PeopleConnect.Domain.Entities
         [Required(ErrorMessage = "Description is Required")]
         public string? Description { get; set; }
         [Required]
-        [MaxLength(10)]
+        [MaxLength(20)]
         public string? Name { get; set; }
         [Required]
         public string? Contact { get; set; }
